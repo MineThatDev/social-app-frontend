@@ -1,18 +1,38 @@
 <template>
-  <q-page>
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <q-page style="background-color: whitesmoke !important">
+    <div class="q-py-lg q-pl-xl q-pr-lg"><Stories :stories="stories" /></div>
   </q-page>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Stories from "@/components/Stories.vue";
 
 export default {
   name: "HomeView",
   components: {
-    HelloWorld,
+    Stories,
+  },
+  setup() {
+    return { stories };
   },
 };
+const stories = [
+  {
+    name: "Eric Clapton",
+    src: "@/assets/images/my-profile.jpg",
+  },
+  {
+    name: "John Cena",
+    src: "@/assets/images/my-profile.jpg",
+  },
+  {
+    name: "Nen Kam",
+    src: "@/assets/images/my-profile.jpg",
+  },
+  {
+    name: "John Pettruchi",
+    src: "@/assets/images/my-profile.jpg",
+  },
+];
 </script>
