@@ -5,16 +5,21 @@
       elevated
       :class="$q.dark.isActive ? 'bg-white text-black' : 'bg-black text-white'"
     >
-      <q-toolbar>
-        <q-btn flat @click="drawerLeft = !drawerLeft" round dense icon="menu" />
+      <q-toolbar class="q-px-lg">
+        <q-btn
+          v-if="$q.screen.lt.md"
+          flat
+          @click="drawerLeft = !drawerLeft"
+          round
+          dense
+          icon="menu"
+        />
         <q-toolbar-title class="font-montserrat-bold text-dark-blue"
-          >socialapp</q-toolbar-title
+          >Social App</q-toolbar-title
         >
-        <q-btn flat round dense icon="home" />
-        <q-btn flat round dense icon="dark_mode" />
-        <q-btn flat round dense icon="grid_view" />
         <q-space></q-space>
         <q-input
+          v-if="!$q.screen.lt.md"
           label-color="dark"
           bg-color="white"
           outlined
@@ -22,21 +27,23 @@
           v-model="text"
           label="Search"
           color="dark"
+          input-class="text-dark"
         >
           <template v-slot:prepend>
             <q-icon name="search" color="dark" /> </template
         ></q-input>
-        <q-space></q-space>
-        <q-space></q-space>
-        <q-space></q-space>
-        <q-space></q-space>
-        <q-btn flat round dense icon="person" />
-        <q-btn flat round dense icon="mail" />
-        <q-btn flat round dense icon="notifications" />
+        <q-space v-if="!$q.screen.lt.md"></q-space>
+        <q-space v-if="!$q.screen.lt.md"></q-space>
+        <q-space v-if="!$q.screen.lt.md"></q-space>
+        <q-space v-if="!$q.screen.lt.md"></q-space>
+        <q-btn class="q-mr-sm" flat round dense icon="person" />
+        <q-btn class="q-mr-sm" flat round dense icon="mail" />
+        <q-btn class="q-mr-sm" flat round dense icon="notifications" />
         <q-avatar>
           <img src="../assets/images/my-profile.jpg" alt="" />
         </q-avatar>
         <q-btn
+          v-if="$q.screen.lt.md"
           flat
           @click="drawerRight = !drawerRight"
           round
@@ -50,7 +57,7 @@
       v-model="drawerLeft"
       show-if-above
       :width="328"
-      elevated
+      style="box-shadow: 0px 0px 12px -10px rgba(0, 0, 0, 0.38)"
       class="bg-white text-black"
     >
       <q-scroll-area class="fit">

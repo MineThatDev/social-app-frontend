@@ -1,7 +1,9 @@
 <template>
-  <q-card class="my-card" :dark="false">
+  <q-card :dark="false" style="box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.38);" >
     <q-card-section>
-      <div class="text-black font-montserrat-semi-bold text-grey">Online Friends</div>
+      <div class="text-black font-montserrat-semi-bold text-grey">
+        Online Friends
+      </div>
     </q-card-section>
 
     <q-card-section class="q-pa-sm">
@@ -28,26 +30,13 @@
 </template>
 
 <script>
+import common from "@/utils/common.js";
 export default {
   props: {
     users: {},
   },
   setup(props) {
-    const handleImageSrc = (imgSrc) => {
-      let condition = "@/assets";
-      // if local path
-      if (imgSrc ? imgSrc.includes(condition) : "") {
-        let newPath = imgSrc.replace(condition, "");
-        return require(`@/assets${newPath}`);
-        // if No path
-      } else if (!imgSrc) {
-        //
-      }
-      // For External Path
-      else {
-        return imgSrc;
-      }
-    };
+    const { handleImageSrc } = common();
     return { handleImageSrc, props };
   },
 };
