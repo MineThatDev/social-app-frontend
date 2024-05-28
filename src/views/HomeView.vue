@@ -18,11 +18,12 @@
       <PostProfile :postProfile="postProfile" />
     </div>
     <div
-      class="q-pt-lg"
       :style="$q.screen.lt.lg ? 'padding-left:32px' : 'padding-left:48px'"
       style="padding-right: 32px"
       v-for="(post, index) in posts"
       :key="index"
+      class="q-pt-lg"
+      :class="index+1 === posts.length ? 'q-pb-lg' : ''"
     >
       <ShowPosts :post="post" />
     </div>
@@ -74,6 +75,9 @@ const posts = [
     desc: "Hello World!!",
     profileSrc: "@/assets/images/dog2.jpg",
     postSrc: "@/assets/images/hello-world.jpg",
+    likes: 4,
+    comments: 0,
+    shares: 3 
   },
   {
     user: "Jasper",
@@ -81,6 +85,9 @@ const posts = [
     desc: "Sometimes, they call me 'Getbackhere.'",
     profileSrc: "@/assets/images/dog7.jpg",
     postSrc: "@/assets/images/getbackhere.jpg",
+    likes: 2,
+    comments: 0,
+    shares: 1 
   },
 ];
 </script>

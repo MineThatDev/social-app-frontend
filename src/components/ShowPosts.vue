@@ -36,15 +36,15 @@
     <q-card-section style="padding: 12px 10px 6px 10px">
       <q-btn dense no-caps flat>
         <q-icon name="favorite" size="20px"></q-icon
-        ><span style="margin-left: 4px" class="fs-12">0 Likes</span>
+        ><span style="margin-left: 4px" class="fs-12">{{ props.post.likes }} Likes</span>
       </q-btn>
       <q-btn class="q-ml-sm" dense no-caps flat>
         <q-icon name="comments" size="20px"></q-icon
-        ><span style="margin-left: 4px" class="fs-12">0 Comments</span>
+        ><span style="margin-left: 4px" class="fs-12">{{ props.post.comments }} Comments</span>
       </q-btn>
       <q-btn class="q-ml-sm" dense no-caps flat>
         <q-icon name="share" size="20px"></q-icon
-        ><span style="margin-left: 4px" class="fs-12">0 Shares</span>
+        ><span style="margin-left: 4px" class="fs-12">{{ props.post.shares }} Shares</span>
       </q-btn>
     </q-card-section>
   </q-card>
