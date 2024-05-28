@@ -27,9 +27,9 @@
       </div>
       <div class="q-mt-md q-px-md">
         <q-img
-          height="60%"
           fit
-          :src="handleImageSrc(props.post.profileSrc)"
+          :ratio="1"
+          :src="handleImageSrc(props.post.postSrc)"
         ></q-img>
       </div>
     </q-card-section>
@@ -39,7 +39,7 @@
         ><span style="margin-left: 4px" class="fs-12">0 Likes</span>
       </q-btn>
       <q-btn class="q-ml-sm" dense no-caps flat>
-        <q-icon name="sms" size="20px"></q-icon
+        <q-icon name="comments" size="20px"></q-icon
         ><span style="margin-left: 4px" class="fs-12">0 Comments</span>
       </q-btn>
       <q-btn class="q-ml-sm" dense no-caps flat>

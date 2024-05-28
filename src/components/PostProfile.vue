@@ -15,7 +15,7 @@
         color="dark"
         borderless
         v-model="text"
-        label="What's on your mind Poopan"
+        label="What's on your mind Cody"
         label-color="dark"
         input-class="text-dark"
         dense
@@ -74,7 +74,7 @@
       </div>
 
       <div class="col-4 text-right">
-        <q-btn dense color="primary" glossy no-caps>Share</q-btn>
+        <q-btn dense color="primary" glossy no-caps><span class="fs-12 font-montserrat-semi-bold">Post</span></q-btn>
       </div>
     </q-card-actions>
   </q-card>

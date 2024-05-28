@@ -6,7 +6,7 @@
       :key="index"
     >
       <q-card v-if="index === 0">
-        <q-img :src="handleImageSrc(item.src)">
+        <q-img :src="handleImageSrc(item.imgSrc)" :ratio="1">
           <div class="absolute-bottom">
             <q-btn
               glossy
@@ -21,7 +21,7 @@
         </q-img>
       </q-card>
       <q-card v-else>
-        <q-img :src="handleImageSrc(item.src)">
+        <q-img :src="handleImageSrc(item.imgSrc)" :ratio="1">
           <div class="absolute-bottom">{{ item.name }}</div>
         </q-img>
       </q-card>

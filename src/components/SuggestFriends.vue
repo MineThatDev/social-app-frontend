@@ -1,7 +1,7 @@
 <template>
   <q-card
     :dark="false"
-    style="box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.38);"
+    style="box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.38)"
   >
     <q-card-section>
       <div class="text-black font-montserrat-semi-bold text-grey">
@@ -26,7 +26,7 @@
         </div>
         <div>
           <q-btn glossy color="primary" dense no-caps style="min-width: 60px"
-            ><span class="fs-12">follow</span></q-btn
+            ><span class="fs-12 font-montserrat-semi-bold">Follow</span></q-btn
           >
           <q-btn
             glossy
@@ -35,7 +35,8 @@
             dense
             no-caps
             style="min-width: 60px"
-            ><span class="fs-12">dismiss</span></q-btn
+          >
+            <span class="fs-12 font-montserrat-semi-bold">Dismiss</span></q-btn
           >
         </div>
       </div>

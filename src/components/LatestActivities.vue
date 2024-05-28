@@ -26,7 +26,7 @@
             >{{ item.name }}&nbsp;</span
           >
 
-          <div style="width: 80px" class="ellipsis fs-12">
+          <div style="width: 60%" class="ellipsis fs-12">
             {{ item.activity }}
           </div>
         </div>

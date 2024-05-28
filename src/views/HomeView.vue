@@ -48,39 +48,39 @@ export default {
 };
 const stories = [
   {
-    name: "Eric Clapton",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Cody",
+    imgSrc: "@/assets/images/dog2.jpg",
   },
   {
-    name: "John Cena",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Tiger",
+    imgSrc: "@/assets/images/story1.jpg",
   },
   {
-    name: "Nen Kam",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Oscar",
+    imgSrc: "@/assets/images/story2.jpg",
   },
   {
-    name: "John Pettruchi",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Ziggy",
+    imgSrc: "@/assets/images/story3.jpg",
   },
 ];
 const postProfile = {
-  src: "@/assets/images/my-profile.jpg",
+  src: "@/assets/images/dog2.jpg",
 };
 const posts = [
   {
-    user: "Poopan",
+    user: "Cody",
     date: "9 hours ago",
-    desc: "Hi, Have a good day 5555555555555555555555555555555555555555555555555555555555555555555555555555+",
-    profileSrc: "@/assets/images/my-profile.jpg",
-    postSrc: "@/assets/images/my-profile.jpg",
+    desc: "Hello World!!",
+    profileSrc: "@/assets/images/dog2.jpg",
+    postSrc: "@/assets/images/hello-world.jpg",
   },
   {
-    user: "Poogun",
+    user: "Jasper",
     date: "16 hours ago",
-    desc: "Hi, I'am your girlfriend, Please kiss me",
-    profileSrc: "@/assets/images/my-profile.jpg",
-    postSrc: "@/assets/images/my-profile.jpg",
+    desc: "Sometimes, they call me 'Getbackhere.'",
+    profileSrc: "@/assets/images/dog7.jpg",
+    postSrc: "@/assets/images/getbackhere.jpg",
   },
 ];
 </script>

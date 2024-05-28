@@ -37,10 +37,10 @@
         <q-space v-if="!$q.screen.lt.md"></q-space>
         <q-space v-if="!$q.screen.lt.md"></q-space>
         <q-btn class="q-mr-sm" flat round dense icon="person" />
-        <q-btn class="q-mr-sm" flat round dense icon="mail" />
+        <q-btn class="q-mr-sm" flat round dense icon="sms" />
         <q-btn class="q-mr-sm" flat round dense icon="notifications" />
         <q-avatar>
-          <img src="../assets/images/my-profile.jpg" alt="" />
+          <img src="@/assets/images/dog2.jpg" alt="" />
         </q-avatar>
         <q-btn
           v-if="$q.screen.lt.md"
@@ -94,7 +94,7 @@
           <LatestActivities :latestActivities="latestActivities" />
         </div>
         <div class="q-py-lg q-px-md">
-          <OnlineFriends :users="users" />
+          <OnlineFriends :users="users2" />
         </div>
       </q-scroll-area>
     </q-drawer>
@@ -134,14 +134,15 @@ export default {
       centerSidebarInfo,
       bottomSidebarInfo,
       users,
+      users2,
       latestActivities,
     };
   },
 };
 const topSidebarInfo = {
   head: {
-    label: "Ruchchanon Sirisan",
-    src: "@/assets/images/my-profile.jpg",
+    label: "Cody",
+    src: "@/assets/images/dog2.jpg",
   },
   body: {
     items: [
@@ -223,39 +224,50 @@ const bottomSidebarInfo = {
 
 const users = [
   {
-    name: "Emily Devidson",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Duke",
+    src: "@/assets/images/dog3.jpg",
   },
   {
-    name: "Tomson Saxsophone",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Cooper",
+    src: "@/assets/images/dog5.jpg",
+  },
+];
+
+const users2 = [
+  {
+    name: "Ziggy",
+    src: "@/assets/images/dog6.jpg",
+  },
+  {
+    name: "Tiger",
+    src: "@/assets/images/tiger1.jpg",
   },
 ];
 
 const latestActivities = [
   {
-    name: "Elza Scarlet",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Jasper",
+    src: "@/assets/images/dog7.jpg",
     activity: "changed their cover picture.",
-    date: "1 min ago",
+    date: "5 min ago",
   },
   {
-    name: "Poogun Parnwad",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Ziggy",
+    src: "@/assets/images/dog6.jpg",
     activity: "liked a post.",
-    date: "1 min ago",
+    date: "17 min ago",
   },
   {
-    name: "Ruchchanon Sirisan",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Oscar",
+    src: "@/assets/images/dog8.jpg",
     activity: "liked a comment.",
-    date: "1 min ago",
+    date: "32 min ago",
   },
   {
-    name: "Stamp plempiti",
-    src: "@/assets/images/my-profile.jpg",
+    name: "Tiger",
+    src: "@/assets/images/tiger1.jpg",
     activity: "posted a new photo.",
-    date: "1 min ago",
+    date: "59 min ago",
   },
 ];
 </script>
