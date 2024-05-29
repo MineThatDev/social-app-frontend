@@ -36,12 +36,42 @@
         <q-space v-if="!$q.screen.lt.md"></q-space>
         <q-space v-if="!$q.screen.lt.md"></q-space>
         <q-space v-if="!$q.screen.lt.md"></q-space>
-        <q-btn class="q-mr-sm" flat round dense icon="person" />
+        <q-btn class="q-mr-sm" flat round dense icon="person">
+          <q-badge color="red" rounded floating transparent> 4 </q-badge>
+        </q-btn>
         <q-btn class="q-mr-sm" flat round dense icon="sms" />
-        <q-btn class="q-mr-sm" flat round dense icon="notifications" />
-        <q-avatar>
-          <img src="@/assets/images/dog2.jpg" alt="" />
-        </q-avatar>
+        <q-btn class="q-mr-sm" flat round dense icon="notifications"> </q-btn>
+        <q-btn-dropdown
+          rounded
+          color="dark"
+          auto-close
+          flat
+          transition-duration="500"
+          dense
+        >
+          <template v-slot:label>
+            <img
+              style="border-radius: 50% !important; object-fit: cover;"
+              width="36px"
+              height="36px"
+              :src="`${handleImageSrc('@/assets/images/dog2.jpg')}`"
+              alt=""
+            />
+          </template>
+          <q-list>
+            <q-item>
+              <q-item-section class="font-montserrat-bold">Cody</q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup disable>
+              <q-item-section>ข้อมูลส่วนตัว</q-item-section>
+            </q-item>
+
+            <q-item clickable v-close-popup disable>
+              <q-item-section>ออกจากระบบ</q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
         <q-btn
           v-if="$q.screen.lt.md"
           flat
@@ -112,7 +142,7 @@ import SidebarList from "@/components/SidebarList";
 import SuggestFriends from "@/components/SuggestFriends";
 import LatestActivities from "@/components/LatestActivities";
 import OnlineFriends from "@/components/OnlineFriends";
-
+import common from "@/utils/common.js";
 export default {
   components: {
     SidebarList,
@@ -123,6 +153,7 @@ export default {
   setup() {
     const $q = useQuasar();
     const text = ref("");
+    const { handleImageSrc } = common();
     onMounted(() => {
       $q.dark.set(true);
     });
@@ -136,6 +167,7 @@ export default {
       users,
       users2,
       latestActivities,
+      handleImageSrc,
     };
   },
 };

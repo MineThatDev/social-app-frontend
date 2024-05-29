@@ -14,5 +14,22 @@ export default function common() {
       return imgSrc;
     }
   };
-  return { handleImageSrc };
+  const createUrlFromFile = (file) => {
+    if (file && file.name) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+
+        reader.onload = () => {
+          resolve(reader.result);
+        };
+
+        reader.onerror = (error) => {
+          reject(error);
+        };
+
+        reader.readAsDataURL(file);
+      });
+    }
+  };
+  return { handleImageSrc, createUrlFromFile };
 }

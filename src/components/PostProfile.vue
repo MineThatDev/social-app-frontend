@@ -14,8 +14,8 @@
         :style="$q.screen.gt.md ? 'width: 90%' : 'width: 100%'"
         color="dark"
         borderless
-        v-model="text"
-        label="What's on your mind Cody"
+        v-model="postText"
+        label="What's on your mind Cody ?"
         label-color="dark"
         input-class="text-dark"
         dense
@@ -28,12 +28,13 @@
           v-model="files"
           class="text-black"
           borderless
-          label="Upload Image"
+          label="Attachment"
           label-color="dark"
           dense
           style="width: 148px"
           hide-bottom-space
           use-chips
+          accept="'.jpeg,, .jpg, .png, .PNG, image/*'"
         >
           <template v-slot:prepend>
             <q-icon
@@ -44,11 +45,13 @@
         <q-file
           class="text-black"
           borderless
-          label="Add Picture"
+          label="Location"
           label-color="dark"
           dense
           style="width: 148px"
           hide-bottom-space
+          disable
+          accept="'.jpeg,, .jpg, .png, .PNG, image/*'"
         >
           <template v-slot:prepend>
             <q-icon
@@ -66,6 +69,7 @@
           style="width: 148px"
           use-chips
           disable
+          accept="'.jpeg,, .jpg, .png, .PNG, image/*'"
         >
           <template v-slot:prepend>
             <q-icon :name="`img:${handleImageSrc('@/assets/icons/1.png')}`" />
@@ -74,7 +78,15 @@
       </div>
 
       <div class="col-4 text-right">
-        <q-btn dense color="primary" glossy no-caps><span class="fs-12 font-montserrat-semi-bold">Post</span></q-btn>
+        <q-btn
+          dense
+          color="primary"
+          :disabled="!files && !postText"
+          glossy
+          no-caps
+          @click="postInfo"
+          ><span class="fs-12 font-montserrat-semi-bold">Post</span></q-btn
+        >
       </div>
     </q-card-actions>
   </q-card>
@@ -83,15 +95,33 @@
 <script>
 import common from "@/utils/common.js";
 import { ref } from "vue";
+import store from "@/store";
 export default {
   props: {
     postProfile: {},
   },
   setup(props) {
-    const { handleImageSrc } = common();
+    const { handleImageSrc, createUrlFromFile } = common();
     const files = ref(null);
-    const text = ref("");
-    return { props, handleImageSrc, text, files };
+    const postText = ref("");
+    const postInfo = async () => {
+      store.dispatch("addNewPost", {
+        id: store.getters.posts.length
+          ? store.getters.posts[store.getters.posts.length - 1].id + 1
+          : 1,
+        user: "Cody",
+        date: "just now",
+        desc: postText.value,
+        profileSrc: "@/assets/images/dog2.jpg",
+        postSrc: await createUrlFromFile(files.value),
+        likes: 0,
+        comments: 0,
+        shares: 0,
+      });
+      files.value = null;
+      postText.value = "";
+    };
+    return { props, handleImageSrc, postText, files, postInfo };
   },
 };
 </script>

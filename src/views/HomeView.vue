@@ -23,7 +23,7 @@
       v-for="(post, index) in posts"
       :key="index"
       class="q-pt-lg"
-      :class="index+1 === posts.length ? 'q-pb-lg' : ''"
+      :class="index + 1 === posts.length ? 'q-pb-lg' : ''"
     >
       <ShowPosts :post="post" />
     </div>
@@ -35,7 +35,8 @@
 import Stories from "@/components/Stories.vue";
 import PostProfile from "@/components/PostProfile";
 import ShowPosts from "@/components/ShowPosts";
-
+import store from "@/store";
+import { computed } from "vue";
 export default {
   name: "HomeView",
   components: {
@@ -44,6 +45,7 @@ export default {
     ShowPosts,
   },
   setup() {
+    const posts = computed(() => store.getters.posts);
     return { stories, postProfile, posts };
   },
 };
@@ -68,26 +70,4 @@ const stories = [
 const postProfile = {
   src: "@/assets/images/dog2.jpg",
 };
-const posts = [
-  {
-    user: "Cody",
-    date: "9 hours ago",
-    desc: "Hello World!!",
-    profileSrc: "@/assets/images/dog2.jpg",
-    postSrc: "@/assets/images/hello-world.jpg",
-    likes: 4,
-    comments: 0,
-    shares: 3 
-  },
-  {
-    user: "Jasper",
-    date: "16 hours ago",
-    desc: "Sometimes, they call me 'Getbackhere.'",
-    profileSrc: "@/assets/images/dog7.jpg",
-    postSrc: "@/assets/images/getbackhere.jpg",
-    likes: 2,
-    comments: 0,
-    shares: 1 
-  },
-];
 </script>
