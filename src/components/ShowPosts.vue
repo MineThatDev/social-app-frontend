@@ -94,9 +94,10 @@ export default {
     },
   },
   setup(props) {
-    const { handleImageSrc } = common();
+    const { handleImageSrc, showNotification } = common();
     const deletePost = (id) => {
       store.dispatch("deletePost", id);
+      showNotification('positive', "Delete successfully!")
     };
     const toggleMoreVert = ref(false);
     const target = ref(null);

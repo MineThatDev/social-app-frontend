@@ -101,7 +101,7 @@ export default {
     postProfile: {},
   },
   setup(props) {
-    const { handleImageSrc, createUrlFromFile } = common();
+    const { handleImageSrc, createUrlFromFile, showNotification } = common();
     const files = ref(null);
     const postText = ref("");
     const postInfo = async () => {
@@ -120,6 +120,7 @@ export default {
       });
       files.value = null;
       postText.value = "";
+      showNotification("positive", "Post successfully!");
     };
     return { props, handleImageSrc, postText, files, postInfo };
   },

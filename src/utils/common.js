@@ -1,4 +1,6 @@
+import { useQuasar } from "quasar"
 export default function common() {
+  const $q = useQuasar();
   const handleImageSrc = (imgSrc) => {
     let condition = "@/assets";
     // if local path
@@ -31,5 +33,14 @@ export default function common() {
       });
     }
   };
-  return { handleImageSrc, createUrlFromFile };
+
+  const showNotification = (type, message, position) => {
+    $q.notify({
+      message: message,
+      position: position ? position : "top",
+      type: type,
+      timeout: 1500,
+    });
+  };
+  return { handleImageSrc, createUrlFromFile, showNotification };
 }
