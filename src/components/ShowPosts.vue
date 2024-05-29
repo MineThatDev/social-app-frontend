@@ -24,8 +24,10 @@
         size="20px"
         class="cursor-pointer"
         @click="toggleMoreVert = !toggleMoreVert"
+        v-if="props.post.user === 'Cody'"
       >
         <q-card
+          ref="target"
           v-if="toggleMoreVert"
           :dark="false"
           style="position: absolute; top: 10px; right: 12px"
@@ -80,6 +82,7 @@
 import common from "@/utils/common.js";
 import { ref } from "vue";
 import store from "@/store";
+import { onClickOutside } from "@vueuse/core";
 export default {
   props: {
     post: {
@@ -96,7 +99,10 @@ export default {
       store.dispatch("deletePost", id);
     };
     const toggleMoreVert = ref(false);
-    return { props, handleImageSrc, toggleMoreVert, deletePost };
+    const target = ref(null);
+
+    onClickOutside(target, () => (toggleMoreVert.value = false));
+    return { props, handleImageSrc, toggleMoreVert, deletePost, target };
   },
 };
 </script>
