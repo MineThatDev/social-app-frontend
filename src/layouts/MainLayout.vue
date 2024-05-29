@@ -64,11 +64,11 @@
             </q-item>
 
             <q-item clickable v-close-popup disable>
-              <q-item-section>ข้อมูลส่วนตัว</q-item-section>
+              <q-item-section>Profile</q-item-section>
             </q-item>
 
             <q-item clickable v-close-popup disable>
-              <q-item-section>ออกจากระบบ</q-item-section>
+              <q-item-section>Logout</q-item-section>
             </q-item>
           </q-list>
         </q-btn-dropdown>
